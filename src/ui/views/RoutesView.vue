@@ -1,14 +1,14 @@
 <template>
   <v-container
     fluid
-    class="routes-container"
+    class="routes-container pa-0"
   >
     <v-row
       no-gutters
       class="routes-container__columns"
     >
       <v-col class="overflow-hidden">
-        <!-- TODO: NavigatorView -->
+        <navigator-view />
       </v-col>
       <v-col class="overflow-hidden">
         <!-- TODO: MapView -->
