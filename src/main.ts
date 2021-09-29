@@ -1,3 +1,5 @@
+import 'leaflet/dist/leaflet.css';
+
 import Vue from 'vue';
 import App from '@/ui/layouts/App.vue';
 import router from '@/router';
