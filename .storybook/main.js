@@ -12,8 +12,6 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, "../src/"),
-      vue: 'vue/dist/vue.js',
-      'vue$': 'vue/dist/vue.esm.js',  
     };
 
     config.module.rules.push({
