@@ -1,66 +1,68 @@
 <template>
   <v-container
     fluid
-    fill-height
     pt-0
+    class="search-bar__wrapper d-flex flex-column"
   >
-    <v-row style="height: 100%">
-      <v-col class="pa-0">
-        <v-sheet
-          style="height: 15%"
-          min-width="100%"
-          color="#eaeaea"
+    <v-sheet
+      color="#eaeaea"
+      class="navigation-bar px-7 py-6"
+    >
+      <v-text-field
+        v-model="text"
+        hide-details
+        rounded
+        dense
+        solo
+      />
+    </v-sheet>
+
+    <div class="mt-3 flex-grow-1 search-bar__content">
+      <div v-if="hasItems">
+        <span
+          class="body-2"
         >
-          <v-col>
-            <v-text-field
-              v-model="text"
-              placeholder="Введите"
-              rounded
-              dense
-              solo
-              prepend-inner-icon="mdi-airplane-takeoff"
-              @input="takeInput(text)"
-            />
-          </v-col>
-        </v-sheet>
-        <v-row
-          style="height: 100%"
-          align="center"
-          justify="center"
+          Здесь результаты
+        </span>
+      </div>
+      <div
+        v-else
+        class="search-bar__status"
+      >
+        <v-progress-circular
+          v-if="isLoading"
+          indeterminate
+          color="primary"
+        />
+
+        <span
+          v-else
+          class="body-2"
         >
-          <v-col align="center">
-            <span
-              v-if="!isFilled"
-              class="body-2 mx-auto"
-            >
-              Ничего не введено
-            </span>
-            <v-progress-circular
-              v-else-if="isLoading"
-              class="mx-auto"
-              indeterminate
-              color="primary"
-            />
-            <span
-              v-else-if="!searchResult"
-              class="body-2 mx-auto"
-            >
-              Ничего не найдено
-            </span>
-            <span
-              v-else-if="searchResult"
-              class="body-2 mx-auto"
-            >
-              Здесь результаты
-            </span>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
+          Список пуст
+        </span>
+      </div>
+    </div>
   </v-container>
 </template>
 
-<style scoped>
+<style scoped lang="less">
+.navigation-bar {
+  width: 100%;
+}
+
+.search-bar {
+  &__wrapper {
+    height:100%;
+  }
+
+  &__status {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>
 
 <script src="./Navigator" lang="ts" />

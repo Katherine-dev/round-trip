@@ -2,19 +2,29 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Navigator extends Vue {
-  private text = '';
+  protected searchQuery = '';
 
-  private isLoading = false;
+  protected loading = false;
 
-  private searchResult = false;
+  // TODO replace type
+  protected items: Array<any> = [];
 
-  private isFilled = false;
+  get hasItems(): boolean {
+    return this.items.length > 0;
+  }
 
-  takeInput(text: string): void {
-    if (text !== '') {
-      this.isFilled = true;
-    } else {
-      this.isFilled = false;
+  get isLoading(): boolean {
+    return this.loading;
+  }
+
+  protected onSearch(value: string): void {
+    try {
+      this.loading = true;
+      // TODO API request and fill items
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.loading = false;
     }
   }
 }

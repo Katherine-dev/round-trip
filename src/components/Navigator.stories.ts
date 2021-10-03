@@ -11,7 +11,7 @@ export const template = (args: any) => ({
       args,
     };
   },
-  template: '<navigator />',
+  template: '<v-app><navigator /></v-app>',
 });
 
 export default {
