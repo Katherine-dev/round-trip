@@ -1,6 +1,7 @@
 import {
   Component, Emit, Prop, Vue, Watch,
 } from 'vue-property-decorator';
+import ApiProvider from '@/api/ApiProvider';
 
 interface ISearchBox {
   value: string;
@@ -18,22 +19,27 @@ export default class RouteDialog extends Vue {
     value: '',
     items: [],
     loading: false,
-    search: '',
+    search: null,
   }
 
   protected dest: ISearchBox = {
     value: '',
     items: [],
     loading: false,
-    search: '',
+    search: null,
   }
 
   @Watch('origin.search')
-  protected onOriginSearchInput(value: string) {
+  protected async onOriginSearchInput(value: string) {
     try {
       this.origin.loading = true;
 
-      this.origin.items.push(Math.random().toPrecision(2));
+      if (value) {
+        const foundResults = await (await ApiProvider.autocomplete(value)).data;
+        this.origin.items = foundResults.results.map((it) => it.shortName);
+      } else {
+        this.origin.items = [];
+      }
     } finally {
       this.origin.loading = false;
     }
@@ -41,11 +47,16 @@ export default class RouteDialog extends Vue {
   }
 
   @Watch('dest.search')
-  protected onDestSearchInput(value: string) {
+  protected async onDestSearchInput(value: string) {
     try {
       this.dest.loading = true;
 
-      this.dest.items.push(Math.random().toPrecision(2));
+      if (value) {
+        const foundResults = await (await ApiProvider.autocomplete(value)).data;
+        this.dest.items = foundResults.results.map((it) => it.shortName);
+      } else {
+        this.dest.items = [];
+      }
     } finally {
       this.dest.loading = false;
     }
