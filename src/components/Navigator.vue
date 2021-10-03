@@ -1,8 +1,7 @@
 <template>
   <v-container
     fluid
-    pt-0
-    class="search-bar__wrapper d-flex flex-column"
+    class="search-bar__wrapper d-flex flex-column pa-0"
   >
     <v-sheet
       color="#eaeaea"
@@ -10,10 +9,14 @@
     >
       <v-text-field
         v-model="text"
+        readonly
         hide-details
+        :loading="isLoading"
         rounded
         dense
         solo
+        :placeholder="$vuetify.lang.t('$vuetify.navigator.placeholder.make_route')"
+        class="field-centered-text"
       />
     </v-sheet>
 
@@ -61,6 +64,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+</style>
+
+<style lang="less">
+.field-centered-text {
+  input {
+    text-align: center;
   }
 }
 </style>
