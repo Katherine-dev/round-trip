@@ -1,0 +1,15 @@
+{
+  "name": "round trip",
+  "route_dialog": {
+    "label": {
+      "route": "Составление маршрута"
+    },
+    "placeholder": {
+      "start": "Отправление из",
+      "finish": "Прибытие в"
+    },
+    "action": {
+      "build_route": "Построить маршрут"
+    }
+  }
+}
