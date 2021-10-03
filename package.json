@@ -9,22 +9,24 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
+    "@mdi/font": "^6.1.95",
+    "axios": "^0.18.0",
     "core-js": "^3.6.5",
+    "leaflet": "^1.7.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
-    "vuex": "^3.4.0",
-    "axios": "^0.18.0"
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
-    "@socheatsok78/storybook-addon-vuetify": "^0.1.9",
     "@storybook/addon-actions": "^6.3.8",
     "@storybook/addon-essentials": "^6.3.8",
     "@storybook/addon-links": "^6.3.8",
     "@storybook/vue": "^6.3.8",
+    "@types/leaflet": "^1.7.5",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",

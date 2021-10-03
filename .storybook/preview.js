@@ -1,4 +1,5 @@
 export const parameters = {
+  layout: 'fullscreen',
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -7,3 +8,7 @@ export const parameters = {
     },
   },
 }
+
+export const decorators = [
+  (story) => '<div style="height: calc(100vh - 14px); margin: 7px"><story /></div>',
+];
