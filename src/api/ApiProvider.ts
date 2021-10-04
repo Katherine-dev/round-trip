@@ -1,5 +1,7 @@
 import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AutocompleteRequest } from './requests/AutocompleteRequest';
 import { SearchRequest } from './requests/SearchRequest';
+import { AutocompleteResponse } from './responses/AutocompleteResponse';
 import { SearchResponse } from './responses/SearchResponse';
 
 class ApiProvider {
@@ -29,6 +31,16 @@ class ApiProvider {
       params: {
         key: process.env.VUE_APP_API_KEY,
         ...requiredParams,
+        ...options,
+      },
+    });
+  }
+
+  public autocomplete(query: string, options?: Partial<AutocompleteRequest>) {
+    return this.networkClient.get<AutocompleteResponse>('/autocomplete', {
+      params: {
+        key: process.env.VUE_APP_API_KEY,
+        query,
         ...options,
       },
     });
