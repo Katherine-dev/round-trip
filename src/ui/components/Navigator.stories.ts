@@ -1,5 +1,5 @@
 import Navigator from './Navigator.vue';
-import vuetify from '../../.storybook/vuetify';
+import vuetify from '../../../.storybook/vuetify';
 
 export const template = (args: any) => ({
   vuetify,

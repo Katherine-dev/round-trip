@@ -7,7 +7,12 @@
       no-gutters
       class="routes-container__columns"
     >
-      <v-col class="overflow-hidden">
+      <v-col
+        cols="12"
+        md="4"
+        sm="6"
+        class="overflow-hidden"
+      >
         <Navigator />
       </v-col>
       <v-col
