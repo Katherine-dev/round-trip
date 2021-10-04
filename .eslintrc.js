@@ -18,6 +18,6 @@ module.exports = {
     'import/prefer-default-export': ['off'],
     'camelcase': ['off'],
     'indent': ['error', 2],
-    'class-methods-use-this': ['off']
+    'class-methods-use-this': ['off'],
   },
 };

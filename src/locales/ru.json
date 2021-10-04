@@ -11,5 +11,10 @@
     "action": {
       "build_route": "Построить маршрут"
     }
+  },
+  "navigator": {
+    "placeholder": {
+      "make_route": "Составить маршрут"
+    }
   }
 }

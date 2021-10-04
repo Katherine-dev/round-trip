@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="routes-container"
+    class="routes-container pa-0"
   >
     <v-row
       no-gutters
@@ -13,7 +13,7 @@
         sm="6"
         class="overflow-hidden"
       >
-        <!-- TODO: NavigatorView -->
+        <Navigator />
       </v-col>
       <v-col
         cols="0"
