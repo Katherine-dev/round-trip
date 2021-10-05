@@ -79,4 +79,9 @@ export default class RouteDialog extends Vue {
       dest: this.dest.value,
     };
   }
+
+  @Emit('route:cancel')
+  protected missClick(): boolean {
+    return false;
+  }
 }
