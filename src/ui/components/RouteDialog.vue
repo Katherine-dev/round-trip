@@ -3,6 +3,7 @@
     :value="value"
     transition="dialog-top-transition"
     content-class="route-top-dialog"
+    @click:outside="missClick()"
   >
     <v-sheet class="px-6 py-6">
       <v-row

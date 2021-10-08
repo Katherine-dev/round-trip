@@ -8,7 +8,6 @@
       class="navigation-bar px-7 py-6"
     >
       <v-text-field
-        v-model="text"
         readonly
         hide-details
         :loading="isLoading"
@@ -17,6 +16,7 @@
         solo
         :placeholder="$vuetify.lang.t('$vuetify.navigator.placeholder.make_route')"
         class="field-centered-text"
+        @click="showDialog()"
       />
     </v-sheet>
 
@@ -46,6 +46,11 @@
         </span>
       </div>
     </div>
+    <RouteDialog
+      v-model="routeDialogState"
+      @route:submit="onRouteSubmit"
+      @route:cancel="closeDialog"
+    />
   </v-container>
 </template>
 
