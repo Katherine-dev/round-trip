@@ -16,6 +16,6 @@ export const template = (args: any) => ({
 
 export default {
   component: RouteCard,
-  title: 'MyComps/RouteCard',
+  title: 'View/RouteCard',
   argTypes: {},
 };

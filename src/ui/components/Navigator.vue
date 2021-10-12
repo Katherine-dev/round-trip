@@ -8,6 +8,7 @@
       class="navigation-bar px-7 py-6"
     >
       <v-text-field
+        v-model="text"
         readonly
         hide-details
         :loading="isLoading"

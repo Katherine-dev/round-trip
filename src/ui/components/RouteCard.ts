@@ -1,4 +1,6 @@
-import { Component, Vue } from 'vue-property-decorator';
+import {
+  Component, Vue, Prop, Emit,
+} from 'vue-property-decorator';
 import RouteCard from './RouteCard.vue';
 
 interface Vehicle {
@@ -7,15 +9,36 @@ interface Vehicle {
 
 @Component
 export default class RouteCard extends Vue {
-  @Prop({ type: string, required: true })
+  @Prop({ type: String, required: true })
   protected routeTitle: string;
+
+  @Prop({ type: String, required: true })
+  protected routeCost: string;
 
   @Prop({ type: Array, required: true })
   protected vehicles: Array<Vehicle>;
 
+ vehiclesDemo = [{ title: 'train', text: 'sdsd' }, { title: 'plain', text: 'sdsd' }, { title: 'bicycle', text: 'sdsd' }]
+
+ routeCostDemo = '1232323$';
+
+ protected expanded = false;
+
+ get isExpanded(): boolean {
+   return this.expanded;
+ }
+
+ protected showRoute():void {
+   this.expanded = true;
+ }
+
+ protected hideRoute():void {
+   this.expanded = false;
+ }
+
   // TODO change return type
   @Emit('route:get')
-  protected chooseRoute(): any {
-    return null;
-  }
+ protected chooseRoute(): any {
+   return null;
+ }
 }
