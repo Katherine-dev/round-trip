@@ -13,6 +13,10 @@ export default class Navigator extends Vue {
 
   protected routeDialogState = false;
 
+  protected oname = '';
+
+  protected dname = '';
+
   // TODO replace type
   protected items: Array<any> = [];
 
@@ -22,6 +26,14 @@ export default class Navigator extends Vue {
 
   get isLoading(): boolean {
     return this.loading;
+  }
+
+  get getOname(): string {
+    return this.oname;
+  }
+
+  get getDname(): string {
+    return this.dname;
   }
 
   protected onSearch(value: string): void {
@@ -43,7 +55,9 @@ export default class Navigator extends Vue {
     this.routeDialogState = false;
   }
 
-  protected onRouteSubmit(): void {
+  protected onRouteSubmit(payload: { origin: string, dest: string }): void {
     this.routeDialogState = false;
+    this.oname = payload.origin;
+    this.dname = payload.dest;
   }
 }

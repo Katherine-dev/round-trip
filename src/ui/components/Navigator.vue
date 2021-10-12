@@ -7,17 +7,24 @@
       color="#eaeaea"
       class="navigation-bar px-7 py-6"
     >
-      <v-text-field
-        readonly
-        hide-details
-        :loading="isLoading"
-        rounded
-        dense
-        solo
-        :placeholder="$vuetify.lang.t('$vuetify.navigator.placeholder.make_route')"
-        class="field-centered-text"
-        @click="showDialog()"
-      />
+      <div class="route_info">
+        <v-btn
+          v-model="text"
+          class="route_info__button grey--text"
+          :loading="isLoading"
+          block
+          color="white"
+          rounded
+          @click="showDialog()"
+        >
+          <span v-if="oname && dname">
+            {{ getOname }}
+            <v-icon>mdi-arrow-right</v-icon>
+            {{ getDname }}
+          </span>
+          <span v-else>  {{ $vuetify.lang.t('$vuetify.navigator.placeholder.make_route') }}</span>
+        </v-btn>
+      </div>
     </v-sheet>
 
     <div class="mt-3 flex-grow-1 search-bar__content">
@@ -78,6 +85,14 @@
   input {
     text-align: center;
   }
+}
+
+.route_info {
+  display: flex;
+  justify-content: space-between;
+ &__button::before, &__button:after {
+  display: none;
+ }
 }
 </style>
 
