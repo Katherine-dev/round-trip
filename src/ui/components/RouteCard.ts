@@ -18,27 +18,23 @@ export default class RouteCard extends Vue {
   @Prop({ type: Array, required: true })
   protected vehicles: Array<Vehicle>;
 
- vehiclesDemo = [{ title: 'train', text: 'sdsd' }, { title: 'plain', text: 'sdsd' }, { title: 'bicycle', text: 'sdsd' }]
+  protected expanded = false;
 
- routeCostDemo = '1232323$';
+  get isExpanded(): boolean {
+    return this.expanded;
+  }
 
- protected expanded = false;
+  protected showRoute():void {
+    this.expanded = true;
+  }
 
- get isExpanded(): boolean {
-   return this.expanded;
- }
-
- protected showRoute():void {
-   this.expanded = true;
- }
-
- protected hideRoute():void {
-   this.expanded = false;
- }
+  protected hideRoute():void {
+    this.expanded = false;
+  }
 
   // TODO change return type
   @Emit('route:get')
- protected chooseRoute(): any {
-   return null;
- }
+  protected chooseRoute(): any {
+    return null;
+  }
 }

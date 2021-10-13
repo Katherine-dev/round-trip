@@ -1,21 +1,24 @@
 import RouteCard from './RouteCard.vue';
 import vuetify from '../../../.storybook/vuetify';
 
-export const template = (args: any) => ({
+export default {
+  title: 'View/RouteCard',
+  component: RouteCard,
+};
+
+const template = (args: unknown, { argTypes }: any) => ({
   vuetify,
+  props: Object.keys(argTypes),
   components: {
     RouteCard,
   },
-  setup() {
-    return {
-      args,
-    };
-  },
-  template: '<v-app><route-card /></v-app>',
+  template: '<v-app><route-card v-bind="$props" /></v-app>',
 });
 
-export default {
-  component: RouteCard,
-  title: 'View/RouteCard',
-  argTypes: {},
+export const Main = template.bind({});
+// @ts-expect-error exist
+Main.args = {
+  vehicles: [{ type: 'train' }, { type: 'plain' }, { type: 'bicycle' }],
+
+  routeCost: '1232323$',
 };

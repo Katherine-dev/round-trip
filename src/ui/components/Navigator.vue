@@ -8,7 +8,7 @@
       class="navigation-bar px-7 py-6"
     >
       <v-text-field
-        v-model="text"
+        v-model="routeInput"
         readonly
         hide-details
         :loading="isLoading"
