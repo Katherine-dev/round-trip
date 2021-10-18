@@ -1,5 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import RouteDialog from './RouteDialog.vue';
+import { IRouteCardModel } from './RouteCard';
 
 @Component({
   components: {
@@ -7,6 +8,8 @@ import RouteDialog from './RouteDialog.vue';
   },
 })
 export default class Navigator extends Vue {
+  protected selectedRoute = '';
+
   protected searchQuery = '';
 
   protected loading = false;
@@ -14,7 +17,24 @@ export default class Navigator extends Vue {
   protected routeDialogState = false;
 
   // TODO replace type
-  protected items: Array<any> = [];
+  // FIXME delete test init
+  protected items: Array<IRouteCardModel> = [
+    {
+      time: '12h 30m',
+      cost: 123,
+      vehicles: [],
+    },
+    {
+      time: '2h 31m',
+      cost: 231,
+      vehicles: [],
+    },
+    {
+      time: '3h 21m',
+      cost: 321,
+      vehicles: [],
+    },
+  ];
 
   get hasItems(): boolean {
     return this.items.length > 0;

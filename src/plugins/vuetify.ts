@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
 
+import { colors } from 'vuetify/lib';
 import ru from '@/locales/ru.json';
 
 Vue.use(Vuetify);
@@ -19,6 +20,7 @@ export default new Vuetify({
         info: '#2196F3',
         success: '#4CAF50',
         warning: '#FFC107',
+        navigatorCardBorderBottom: colors.grey.lighten2,
       },
     },
   },

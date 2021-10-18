@@ -13,7 +13,15 @@
         sm="6"
         class="overflow-hidden"
       >
-        <Navigator />
+        <Navigator>
+          <template #card="{ cost, vehicles, time }">
+            <RouteCard
+              :cost="cost"
+              :vehicles="vehicles"
+              :time="time"
+            />
+          </template>
+        </Navigator>
       </v-col>
       <v-col
         cols="0"

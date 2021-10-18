@@ -4,11 +4,10 @@
     class="search-bar__wrapper d-flex flex-column pa-0"
   >
     <v-sheet
-      color="#eaeaea"
-      class="navigation-bar px-7 py-6"
+      class="search-bar__navigation px-5 py-9 grey lighten-4"
     >
       <v-text-field
-        v-model="routeInput"
+        :value="selectedRoute"
         readonly
         hide-details
         :loading="isLoading"
@@ -21,12 +20,24 @@
       />
     </v-sheet>
 
-    <div class="mt-3 flex-grow-1 search-bar__content">
+    <div class="flex-grow-1 search-bar__content">
       <div v-if="hasItems">
         <span
           class="body-2"
         >
-          Здесь результаты
+          <template v-for="(item, index) in items">
+            <div
+              :key="index"
+              class="search-bar__route-card"
+            >
+              <slot
+                name="card"
+                :cost="item.cost"
+                :time="item.time"
+                :vehicles="item.vehicles"
+              />
+            </div>
+          </template>
         </span>
       </div>
       <div
@@ -56,13 +67,13 @@
 </template>
 
 <style scoped lang="less">
-.navigation-bar {
-  width: 100%;
-}
-
 .search-bar {
   &__wrapper {
     height:100%;
+  }
+
+  &__navigation {
+    width: 100%;
   }
 
   &__status {
@@ -70,6 +81,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__route-card {
+    border-bottom: 1px solid var(--v-navigatorCardBorderBottom-base);
   }
 }
 </style>

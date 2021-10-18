@@ -19,14 +19,14 @@ export default class RouteDialog extends Vue {
     value: '',
     items: [],
     loading: false,
-    search: null,
+    search: '',
   }
 
   protected dest: ISearchBox = {
     value: '',
     items: [],
     loading: false,
-    search: null,
+    search: '',
   }
 
   @Watch('origin.search')

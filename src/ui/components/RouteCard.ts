@@ -1,22 +1,27 @@
 import {
   Component, Vue, Prop, Emit,
 } from 'vue-property-decorator';
-import RouteCard from './RouteCard.vue';
 
-interface Vehicle {
+interface IVehicle {
   type: string
+}
+
+export interface IRouteCardModel {
+  time: string,
+  cost: number,
+  vehicles: Array<IVehicle>
 }
 
 @Component
 export default class RouteCard extends Vue {
   @Prop({ type: String, required: true })
-  protected routeTitle: string;
+  protected time!: string;
 
-  @Prop({ type: String, required: true })
-  protected routeCost: string;
+  @Prop({ type: Number, required: true })
+  protected cost!: number;
 
   @Prop({ type: Array, required: true })
-  protected vehicles: Array<Vehicle>;
+  protected vehicles!: Array<IVehicle>;
 
   protected expanded = false;
 
